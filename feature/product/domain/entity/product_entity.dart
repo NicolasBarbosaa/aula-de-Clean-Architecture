@@ -19,7 +19,12 @@ class ProductEntity {
   
   discontAply(){
     if(quantity > 10){
-      price =- (price *15/100);
+      price = price - (price *15/100);
     }
+  }
+
+  @override
+  String toString(){
+    return "Esses são os produtos no carrinho: \n nome: $name \n price: $price \n quantity: $quantity";
   }
 }

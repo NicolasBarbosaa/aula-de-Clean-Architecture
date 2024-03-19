@@ -8,7 +8,7 @@ abstract class ProductRepository{
   //outras informações que possam estar a 2s na frente 
   //para dar tempo para a informação chegar até a aplicação 
   Future<void> addProduct(ProductEntity productEntity); 
-  Future<void> removeProduct(String name);
+  Future<void> removeProduct(ProductEntity productEntity);
   Future<void> editProduct(String name); 
   Future<List<ProductEntity>> listProduct();
   //crud =  create, read, update, delete

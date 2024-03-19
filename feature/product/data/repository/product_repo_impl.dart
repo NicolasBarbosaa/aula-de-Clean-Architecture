@@ -4,30 +4,37 @@ import '../data_source/dados.dart';
 import '../model/product_model.dart';
 
 class ProductRepositoryImpl implements ProductRepository{
+
   @override
   Future<void> addProduct(ProductEntity productEntity) async{
     var product = ProductModel.fromEntity(productEntity);
+
     ProductData.lista.add(product);
-    // TODO: implement addProduct
-    throw UnimplementedError();
+    print("produto adicionado ao carrinho");
+
   }
 
   @override
   Future<void> editProduct(String name) {
+   
     // TODO: implement editProduct
     throw UnimplementedError();
   }
 
   @override
-  Future<List<ProductEntity>> listProduct() {
-    // TODO: implement listProduct
-    throw UnimplementedError();
+  Future<List<ProductEntity>> listProduct() async {
+    List<ProductEntity> lista = await ProductData.lista.map((e) => e.toEntity()).toList();
+    print(lista);
+    return lista;
   }
 
   @override
-  Future<void> removeProduct(String name) {
-    // TODO: implement removeProduct
-    throw UnimplementedError();
+  Future<void> removeProduct(ProductEntity entity) async {
+    int index = ProductData.lista.indexWhere((e) => e.name == entity.name);
+    if (index != -1){
+      ProductData.lista.removeAt(index);
+  }else{
+    print("não encontrado");
   }
-  
+  }
 }

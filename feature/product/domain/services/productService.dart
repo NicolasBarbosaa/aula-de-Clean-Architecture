@@ -16,4 +16,14 @@ class ProductService{
     //no meu repositório(lugar onde guardo as coisas)
     productRepository.addProduct(product);
   }
+
+removeProductShopCar(ProductEntity product)async{
+productRepository.removeProduct(product);
+}
+
+  Future <List<ProductEntity>> getProdutos() async{
+    return productRepository.listProduct();
+  }
+
+  
 }

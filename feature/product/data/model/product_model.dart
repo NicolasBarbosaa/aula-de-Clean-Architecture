@@ -25,15 +25,24 @@ class ProductModel{
   }
 
 //conversão de um objeto Model para um entity
-  toEntity(){
+  ProductEntity toEntity(){
     return ProductEntity( 
     name: name, 
     price: price, 
     quantity: quantity,
-     productId: productId
+    productId: productId
      );
   }
+
+//modelo de impressão da minha lista do data, onde vai ser armazanado meus produtos
+@override
+String toString(){
+  return "nome: $name";
 }
+
+}
+
+
 //construtor nomeado obrigatorio
 // var produto = ProductModel(
 //   name: name,
